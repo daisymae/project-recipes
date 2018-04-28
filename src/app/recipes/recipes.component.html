@@ -1,8 +1,18 @@
 <div class="row">
   <div class="col-md-5">
-    <app-recipe-list></app-recipe-list>
+    <!-- not best practice to put logic here in template;
+      could use a function in place of the assignment here in the template of selectedRecipe -->
+    <app-recipe-list (recipeListSelection)="selectedRecipe = $event"></app-recipe-list>
   </div>
   <div class="col-md-7">
-    <app-recipe-detail></app-recipe-detail>
+    <!-- *ngIf here has an else that will point to a local reference to display for false conditions -->
+    <app-recipe-detail
+    *ngIf="selectedRecipe; else infoText"
+    [detailedRecipe]="selectedRecipe">
+    </app-recipe-detail>
+    <!-- dummy text to use if no recipe selected -->
+    <ng-template #infoText>
+      <p>Please select a Recipe!</p>
+    </ng-template>
   </div>
 </div>
