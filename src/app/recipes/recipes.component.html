@@ -2,7 +2,7 @@
   <div class="col-md-5">
     <!-- not best practice to put logic here in template;
       could use a function in place of the assignment here in the template of selectedRecipe -->
-    <app-recipe-list (recipeListSelection)="selectedRecipe = $event"></app-recipe-list>
+    <app-recipe-list></app-recipe-list>
   </div>
   <div class="col-md-7">
     <!-- *ngIf here has an else that will point to a local reference to display for false conditions -->
