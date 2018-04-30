@@ -5,14 +5,6 @@
     <app-recipe-list></app-recipe-list>
   </div>
   <div class="col-md-7">
-    <!-- *ngIf here has an else that will point to a local reference to display for false conditions -->
-    <app-recipe-detail
-    *ngIf="selectedRecipe; else infoText"
-    [detailedRecipe]="selectedRecipe">
-    </app-recipe-detail>
-    <!-- dummy text to use if no recipe selected -->
-    <ng-template #infoText>
-      <p>Please select a Recipe!</p>
-    </ng-template>
+    <router-outlet></router-outlet>
   </div>
 </div>
